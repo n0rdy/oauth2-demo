@@ -1,11 +1,25 @@
 package com.udemy.n0rdy.oauth2demo.data.entity;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
 public class User {
+    @Id
     private Integer id;
+    @NotEmpty
     private String name;
+    @NotEmpty
     private String password;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_role",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id")}
+    )
     private Set<Role> roles;
 
     public Integer getId() {
