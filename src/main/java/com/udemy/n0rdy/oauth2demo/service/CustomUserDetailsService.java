@@ -1,4 +1,4 @@
-package com.udemy.n0rdy.oauth2demo.config;
+package com.udemy.n0rdy.oauth2demo.service;
 
 import com.udemy.n0rdy.oauth2demo.data.entity.User;
 import com.udemy.n0rdy.oauth2demo.data.repository.UserRepository;
