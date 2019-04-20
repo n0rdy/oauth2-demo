@@ -1,6 +1,7 @@
 package com.udemy.n0rdy.oauth2demo.data.entity;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,7 +9,7 @@ import javax.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
-public class Role {
+public class Role implements GrantedAuthority {
     @Id
     private Integer id;
     @NotEmpty
@@ -38,5 +39,10 @@ public class Role {
 
     public void setUsers(Set<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public String getAuthority() {
+        return name;
     }
 }
